@@ -6,7 +6,7 @@
 /*   By: saydilek <saydilek@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/25 04:56:51 by saydilek          #+#    #+#             */
-/*   Updated: 2026/08/25 05:15:41 by saydilek         ###   ########.fr       */
+/*   Updated: 2026/08/25 05:21:54 by saydilek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,9 @@ int	ft_hex_up(unsigned long nb)
 {
 	char		digit;
 	int			count;
-	const char	*hex = "0123456789ABCDEF";
+	const char	*hex;
 
+	hex = "0123456789ABCDEF";
 	count = 0;
 	if (nb >= 16)
 	{

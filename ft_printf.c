@@ -6,7 +6,7 @@
 /*   By: saydilek <saydilek@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/25 04:55:55 by saydilek          #+#    #+#             */
-/*   Updated: 2026/08/25 05:17:29 by saydilek         ###   ########.fr       */
+/*   Updated: 2026/08/25 05:21:46 by saydilek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	ft_printf(const char *format, ...)
 	int		result;
 
 	result = 0;
-	i = -1;
+	i = 0;
 	va_start(args, format);
 	while (format[i])
 	{
@@ -69,112 +69,4 @@ int	ft_printf(const char *format, ...)
 	}
 	va_end(args);
 	return (result);
-}
-
-#include <limits.h>
-
-int	main(void)
-{
-	int	result;
-	int	x;
-
-	x = 42;
-
-	ft_printf("\n===== EMPTY =====\n");
-	result = ft_printf("");
-	ft_printf("\nreturn = %d | expected = 0\n", result);
-
-	ft_printf("\n===== NORMAL =====\n");
-	result = ft_printf("abc");
-	ft_printf("\nreturn = %d | expected = 3\n", result);
-
-	ft_printf("\n===== CHAR =====\n");
-	result = ft_printf("%c", 'A');
-	ft_printf("\nreturn = %d | expected = 1\n", result);
-
-	ft_printf("\n===== STRING =====\n");
-	result = ft_printf("%s", "serhat");
-	ft_printf("\nreturn = %d | expected = 6\n", result);
-
-	result = ft_printf("[%s]", "");
-	ft_printf("\nreturn = %d | expected = 2\n", result);
-
-	ft_printf("\n===== D / I =====\n");
-	result = ft_printf("%d", 0);
-	ft_printf("\nreturn = %d | expected = 1\n", result);
-
-	result = ft_printf("%d", 42);
-	ft_printf("\nreturn = %d | expected = 2\n", result);
-
-	result = ft_printf("%d", -42);
-	ft_printf("\nreturn = %d | expected = 3\n", result);
-
-	result = ft_printf("%d", INT_MAX);
-	ft_printf("\nreturn = %d | expected = 10\n", result);
-
-	result = ft_printf("%d", INT_MIN);
-	ft_printf("\nreturn = %d | expected = 11\n", result);
-
-	result = ft_printf("%i", -12345);
-	ft_printf("\nreturn = %d | expected = 6\n", result);
-
-	ft_printf("\n===== UNSIGNED =====\n");
-	result = ft_printf("%u", 0U);
-	ft_printf("\nreturn = %d | expected = 1\n", result);
-
-	result = ft_printf("%u", UINT_MAX);
-	ft_printf("\nreturn = %d | expected = 10\n", result);
-
-	ft_printf("\n===== HEX LOWER =====\n");
-	result = ft_printf("%x", 0U);
-	ft_printf("\nreturn = %d | expected = 1\n", result);
-
-	result = ft_printf("%x", 10U);
-	ft_printf("\nreturn = %d | expected = 1\n", result);
-
-	result = ft_printf("%x", 16U);
-	ft_printf("\nreturn = %d | expected = 2\n", result);
-
-	result = ft_printf("%x", 255U);
-	ft_printf("\nreturn = %d | expected = 2\n", result);
-
-	result = ft_printf("%x", UINT_MAX);
-	ft_printf("\nreturn = %d | expected = 8\n", result);
-
-	ft_printf("\n===== HEX UPPER =====\n");
-	result = ft_printf("%X", 10U);
-	ft_printf("\nreturn = %d | expected = 1\n", result);
-
-	result = ft_printf("%X", 255U);
-	ft_printf("\nreturn = %d | expected = 2\n", result);
-
-	result = ft_printf("%X", UINT_MAX);
-	ft_printf("\nreturn = %d | expected = 8\n", result);
-
-	ft_printf("\n===== PERCENT =====\n");
-	result = ft_printf("%%%%");
-	ft_printf("\nreturn = %d | expected = 2\n", result);
-
-	ft_printf("\n===== CONSECUTIVE =====\n");
-	result = ft_printf("%d%d%d", 1, 2, 3);
-	ft_printf("\nreturn = %d | expected = 3\n", result);
-
-	result = ft_printf("%c%s%x", '!', "test", 255U);
-	ft_printf("\nreturn = %d | expected = 7\n", result);
-
-	ft_printf("\n===== BETWEEN TEXT =====\n");
-	result = ft_printf("A%cB%sC%dD", 'Z', "ok", 42);
-	ft_printf("\nreturn = %d | expected = 9\n", result);
-
-	ft_printf("\n===== POINTER =====\n");
-	result = ft_printf("%p\n", (void *)&x);
-	ft_printf("pointer return = %d\n", result);
-
-	ft_printf("\n===== MIXED =====\n");
-	result = ft_printf(
-			"A:%c S:%s D:%d I:%i U:%u x:%x X:%X %%\n",
-			'Z', "ok", -12, 34, 42U, 255U, 255U);
-	ft_printf("return = %d | expected = 37\n", result);
-
-	return (0);
 }
