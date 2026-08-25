@@ -6,7 +6,7 @@
 /*   By: saydilek <saydilek@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/25 05:15:21 by saydilek          #+#    #+#             */
-/*   Updated: 2026/08/25 05:16:22 by saydilek         ###   ########.fr       */
+/*   Updated: 2026/08/25 05:52:57 by saydilek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <unistd.h>
 
 int	ft_printf(const char *format, ...);
+int	ft_print_format(const char *format, va_list *args);
 int	ft_putchar_printf(char c);
 int	ft_conversion(char type, va_list *args);
 int	ft_conversion_hex(char type, va_list *args);

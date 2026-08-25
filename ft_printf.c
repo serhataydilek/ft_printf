@@ -6,7 +6,7 @@
 /*   By: saydilek <saydilek@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/25 04:55:55 by saydilek          #+#    #+#             */
-/*   Updated: 2026/08/25 05:46:41 by saydilek         ###   ########.fr       */
+/*   Updated: 2026/08/25 05:52:44 by saydilek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,33 +44,38 @@ int	ft_conversion_hex(char type, va_list *args)
 	return (0);
 }
 
-int	ft_printf(const char *format, ...)
+int	ft_print_format(const char *format, va_list *args)
 {
-	va_list	args;
-	int		i;
-	int		result;
+	int	i;
+	int	result;
 
-	if (!format)
-		return (-1);
-	result = 0;
 	i = 0;
-	va_start(args, format);
+	result = 0;
 	while (format[i])
 	{
 		if (format[i] == '%' && !format[i + 1])
 			break ;
 		if (format[i] == '%')
 		{
-			result += ft_conversion(format[i + 1], &args);
+			result += ft_conversion(format[i + 1], args);
 			i++;
 		}
 		else
-		{
-			write(1, &format[i], 1);
-			result++;
-		}
+			result += ft_putchar_printf(format[i]);
 		i++;
 	}
+	return (result);
+}
+
+int	ft_printf(const char *format, ...)
+{
+	va_list	args;
+	int		result;
+
+	if (!format)
+		return (-1);
+	va_start(args, format);
+	result = ft_print_format(format, &args);
 	va_end(args);
 	return (result);
 }

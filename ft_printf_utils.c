@@ -6,7 +6,7 @@
 /*   By: saydilek <saydilek@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/25 04:55:54 by saydilek          #+#    #+#             */
-/*   Updated: 2026/08/25 05:42:04 by saydilek         ###   ########.fr       */
+/*   Updated: 2026/08/25 05:53:12 by saydilek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,7 @@ int	ft_printf_putunbr(unsigned int nb)
 
 	count = 0;
 	if (nb >= 10)
-	{
 		count += ft_printf_putunbr(nb / 10);
-	}
 	digit = (nb % 10) + '0';
 	write(1, &digit, 1);
 	count++;
