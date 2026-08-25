@@ -6,7 +6,7 @@
 /*   By: saydilek <saydilek@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/25 04:55:54 by saydilek          #+#    #+#             */
-/*   Updated: 2026/08/25 05:15:59 by saydilek         ###   ########.fr       */
+/*   Updated: 2026/08/25 05:27:15 by saydilek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int	ft_printf_putstr(char *s)
 	int	i;
 
 	i = 0;
+	if (!s)
+		return (ft_printf_putstr("(null)"));
 	while (s[i])
 	{
 		write(1, &s[i], 1);
