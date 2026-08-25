@@ -6,7 +6,7 @@
 /*   By: saydilek <saydilek@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/25 04:55:55 by saydilek          #+#    #+#             */
-/*   Updated: 2026/08/25 05:26:49 by saydilek         ###   ########.fr       */
+/*   Updated: 2026/08/25 05:46:41 by saydilek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,15 @@ int	ft_printf(const char *format, ...)
 	int		i;
 	int		result;
 
+	if (!format)
+		return (-1);
 	result = 0;
 	i = 0;
 	va_start(args, format);
 	while (format[i])
 	{
+		if (format[i] == '%' && !format[i + 1])
+			break ;
 		if (format[i] == '%')
 		{
 			result += ft_conversion(format[i + 1], &args);

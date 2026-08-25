@@ -6,7 +6,7 @@
 /*   By: saydilek <saydilek@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/25 04:55:54 by saydilek          #+#    #+#             */
-/*   Updated: 2026/08/25 05:27:15 by saydilek         ###   ########.fr       */
+/*   Updated: 2026/08/25 05:42:04 by saydilek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,8 @@ int	ft_putptr(void *s)
 	int				count;
 	unsigned long	address;
 
+	if (!s)
+		return (ft_printf_putstr("(nil)"));
 	count = 2;
 	write(1, "0x", 2);
 	address = (unsigned long)s;
